@@ -33,7 +33,7 @@ public sealed class CherqueQuery
             propertyMap[prop.Name] = prop;
         }
 
-        await using SqlDataReader? reader = await cmd.ExecuteReaderAsync();
+        await using SqlDataReader reader = await cmd.ExecuteReaderAsync();
         while (await reader.ReadAsync())
         {
             T item = new T(); // Create a new instance of T for each row
