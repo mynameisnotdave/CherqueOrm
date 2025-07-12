@@ -25,6 +25,10 @@ public sealed class CherqueQuery
 
         // Get the type of T and its public properties
         Type typeOfT = typeof(T);
+        if (CherqueUtil.IsPrimitiveOrSimpleType(typeOfT))
+        {
+            
+        }
         PropertyInfo[] properties = typeOfT.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
         Dictionary<string, PropertyInfo> propertyMap = new(StringComparer.OrdinalIgnoreCase);

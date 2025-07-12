@@ -9,7 +9,7 @@ using Microsoft.Data.SqlClient;
 
 namespace CherqueOrmTests;
 
-public class Tests
+public class CherqueQueryTests
 {
     string connectionString = string.Empty;
 
@@ -198,5 +198,15 @@ public class Tests
         SqlParameter[] parameters = [new SqlParameter { ParameterName = "ProductId", SqlDbType = SqlDbType.Int, Value = 1 }];
         var foodProductList = await cherqueQuery.ExecuteQueryAsync<FoodProduct>(sql, parameters, connectionString);
         foodProductList.Should().NotBeNull();
+    }    
+    
+    [Test]
+    public async Task ExecuteQueryAsyncShouldWorkWithPrimitiveTypes()
+    {
+        var cherqueQuery = new CherqueQuery();
+        const string sql =  "SELECT FP.ProductId FROM FoodProducts FP WHERE FP.ProductId = @ProductId";
+        SqlParameter[] parameters = [new SqlParameter { ParameterName = "ProductId", SqlDbType = SqlDbType.Int, Value = 1 }];
+        var foodProductList = await cherqueQuery.ExecuteQueryAsync<int>(sql, parameters, connectionString);
+        foodProductList[0].Should().Be(1);
     }
 }
