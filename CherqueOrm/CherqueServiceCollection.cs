@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CherqueOrm;
 
-public static class CherqueServiceCollection 
+public static class CherqueServiceCollection
 {
     public static IServiceCollection AddCherque(this IServiceCollection services, string connectionString)
     {

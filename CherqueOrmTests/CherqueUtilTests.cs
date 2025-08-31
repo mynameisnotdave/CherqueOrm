@@ -6,7 +6,7 @@ using AwesomeAssertions;
 namespace CherqueOrmTests;
 
 [TestFixture]
-public class TypeIdentificationTests
+public class CherqueUtilTests
 {
     // The test method now directly accepts a Type object, avoiding generic inference issues with 'null' values.
     [TestCaseSource(nameof(GetTypesToTest))]
@@ -81,9 +81,5 @@ public class TypeIdentificationTests
         // 5. Enums (example)
         yield return new TestCaseData(typeof(DayOfWeek)); // System.DayOfWeek enum
         yield return new TestCaseData(typeof(DayOfWeek?)); // Nullable enum
-
-        // If you want to test complex types (which should return false)
-        // yield return new TestCaseData(typeof(object)).Returns(false); // Example of a negative test case
-        // yield return new TestCaseData(typeof(List<int>)).Returns(false);
     }
 }

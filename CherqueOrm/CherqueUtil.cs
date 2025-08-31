@@ -1,6 +1,6 @@
 namespace CherqueOrm;
 
-internal sealed class CherqueUtil
+internal static class CherqueUtil
 {
     internal static bool IsPrimitiveOrSimpleType(Type typeToTest)
     {
