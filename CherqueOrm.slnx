@@ -1,0 +1,4 @@
+﻿<Solution>
+  <Project Path="CherqueOrmTests\CherqueOrmTests.csproj" Type="Classic C#" />
+  <Project Path="CherqueOrm\CherqueOrm.csproj" Type="Classic C#" />
+</Solution>
